@@ -6,9 +6,9 @@ import teradatasql
 from datetime import datetime
 pd.options.display.max_columns = None
 
-u_name = 'TDQ1160'
-pw = 'D3v10usD0gsD1g'
-server_name = 'teraprd1.ca.boeing.com'
+u_name = 
+pw = 
+server_name = 
 
 now = (datetime.now().strftime('%Y_%m_%d %H_%M_%S'))
 
