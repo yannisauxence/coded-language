@@ -13,7 +13,10 @@
         }
         .container {
             max-width: 400px;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(221, 221, 221, 0);
+            border-radius: 4px;
         }
         .form-group {
             margin-bottom: 15px;
@@ -51,6 +54,8 @@
             border-collapse: collapse;
             width: fit-content;
             position: center;
+            margin-left: auto;
+            margin-right: auto;
             /* background-color: #dddddd; */
         }
 
@@ -69,7 +74,7 @@
 <body>
     <div class="container"><a href='/'> Home </a></div>
         <br>
-    <table  position="center">
+    <table>
         <tr>
             {% for col in column_names %}
             <th>{{col}}</th>

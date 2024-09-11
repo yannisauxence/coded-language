@@ -43,6 +43,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 500%;
+    margin-left: 12 pt;
 }
 
 td, th {
