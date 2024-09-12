@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: ghostwhite;
+            margin: 20px;
+            background-color: darkgray;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"><a href='/'> Home </a> &nbsp;
+        <a href='/data/'> Back To Search </a>
+    </div> 
+        <br>
+
+
+
+    <!-- Output a panda list in a html table  -->
+    <table>
+        <tr>
+            {% for x in tx.columns.values %}
+                <th>{{ x }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for x in tx.index.values %}
+        <tr>
+            {% for y in tx.columns.values %}
+            <td>{{ tx.loc[x,y] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>

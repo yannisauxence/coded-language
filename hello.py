@@ -2,7 +2,12 @@ from datetime import date
 from flask import Flask, render_template, request, url_for
 import string
 import pandas as pd
+from sqlalchemy import create_engine
 app = Flask(__name__)
+
+tx = pd.read_excel('Records.xlsx', usecols="A:K")
+tx.fillna("N/A", inplace = True)
+tx.drop_duplicates(inplace = True)
 
 
 @app.route("/")
@@ -46,10 +51,19 @@ def results():
     translated_text = o
     return render_template('results.html', translated_text=translated_text)
 
-@app.route("/data")
+@app.route("/data/", methods=['GET'])
 def data():
-    #tx=""
-    tx = pd.read_excel('Records.xlsx', usecols="A:K")
-    tx.fillna("N/A", inplace = True)
     return render_template('data.html', column_names=tx.columns.values, row_data=list(tx.values.tolist()),
                            link_column="Index", zip=zip, tx=tx)
+
+@app.route("/data/search", methods=['POST'])
+def search():
+    
+    v = request.form['search'] 
+    qr = tx.loc[tx.isin([v]).any(axis=1)]
+    return render_template('search.html', column_names=qr.columns.values, row_data=list(qr.values.tolist()),
+                           link_column="ID", zip=zip, qr=qr)
+
+@app.route("/tess")
+def tess():
+    return render_template('tess.html',tx=tx, r=list(tx.values.tolist()))
