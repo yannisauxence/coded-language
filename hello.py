@@ -51,14 +51,13 @@ def results():
     translated_text = o
     return render_template('results.html', translated_text=translated_text)
 
-@app.route("/data/", methods=['GET'])
+@app.route("/data/")
 def data():
     return render_template('data.html', column_names=tx.columns.values, row_data=list(tx.values.tolist()),
                            link_column="Index", zip=zip, tx=tx)
 
 @app.route("/data/search", methods=['POST'])
 def search():
-    
     v = request.form['search'] 
     qr = tx.loc[tx.isin([v]).any(axis=1)]
     return render_template('search.html', column_names=qr.columns.values, row_data=list(qr.values.tolist()),
