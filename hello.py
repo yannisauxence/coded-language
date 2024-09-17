@@ -31,22 +31,17 @@ def results():
     for i in m:
         if i == ' ':
             o += " "
-            #print(n,end=' ')
         else:
             for j in range(26):
                 if i == alphabet_lower[j]:
                     if j in range(13):
-                        #print(alphabet[j+13], end="")
                         o += alphabet_lower[j+13]
                     if j in range(13,26):
-                        #print(alphabet[j - 13],end="")
                         o += alphabet_lower[j - 13]
                 elif i == alphabet_upper[j]:
                     if j in range(13):
-                        #print(alphabet[j+13], end="")
                         o += alphabet_upper[j+13]
                     if j in range(13,26):
-                        #print(alphabet[j - 13],end="")
                         o += alphabet_upper[j - 13]
     translated_text = o
     return render_template('results.html', translated_text=translated_text)
@@ -65,4 +60,4 @@ def search():
 
 @app.route("/tess")
 def tess():
-    return render_template('tess.html',tx=tx, r=list(tx.values.tolist()))
+    return render_template('tess.html',tx=tx)
