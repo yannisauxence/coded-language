@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
+</head>
+
+<body>
+    <div class="container"><a href='/'> Home </a> &nbsp;
+        <a href='/data/'> Back To Search </a>
+    </div> 
+        <br>
+
+
+
+    <!-- Output a panda list in a html table  -->
+    <table>
+        <tr>
+            {% for x in tx.columns.values %}
+                <th>{{ x }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for x in tx.index.values %}
+        <tr>
+            {% for y in tx.columns.values %}
+            <td>{{ tx.loc[x,y] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>

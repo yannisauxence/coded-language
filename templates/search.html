@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
+</head>
+
+<body>
+    <div class="container"><a href='/'> Home </a> &nbsp;
+        <a href='/data/'> Back To Search </a>
+    </div> 
+        <br>
+    
+    <table>
+        <tr>
+            {% for col in column_names %}
+            <th>{{col}}</th>
+            {% endfor %}
+        </tr>
+
+        {% for row in row_data %}
+        <tr>
+            {% for col, row_ in zip(column_names, row) %}
+            {% if col == link_column %}
+                <td> {{ row_ }} </td>
+            {% elif row_ == "nan" %}
+                <td> {{ "N/A" }} </td>
+            {% else %}
+                <td>{{row_}}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
