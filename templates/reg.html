@@ -1,86 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <title>Translator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: ghostwhite;
-            margin: 20px;
-            background-color: darkgray;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .form-group button {
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .form-group button:hover {
-            background-color: #0056b3;
-        }
-        .output {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-            color: grey;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
+        <title>Translator</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Translator</h1>
+            <!-- -->
+            <form  action= "results" method="POST">
+                <div class="form-group">
+                    <label for="userInput">Enter Text:</label>
+                    <input name="msg" type="text" id="userInput" placeholder="Type something...">
+                </div>
 
-</head>
-<body>
-    <div class="container">
-        <h1>Translator</h1>
-        <!-- -->
-        <form  action= "results" method="POST">
-            <div class="form-group">
-                <label for="userInput">Enter Text:</label>
-                <input name="msg" type="text" id="userInput" placeholder="Type something...">
-            </div>
-
-            <div class="form-group">
-                <div class="output">{{ psc }}</div>
-            </div>
+                <div class="form-group">
+                    <div class="output">{{ psc }}</div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
             
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-        
-    </div>
+        </div>
 
-    <div class="container"><a href='/'> Home </a> </div>
-<!--
-    <script>
-        function submitForm() {
-            // Get the value from the input field
-            var userInput = document.getElementById('userInput').value;
-            
-            // Display the value in the output field
-            document.getElementById('outputField').innerText = userInput;
-        }
-    </script> -->
-</body>
+        <div class="container"><a href='/'> Home </a> </div>
+    <!--
+        <script>
+            function submitForm() {
+                // Get the value from the input field
+                var userInput = document.getElementById('userInput').value;
+                
+                // Display the value in the output field
+                document.getElementById('outputField').innerText = userInput;
+            }
+        </script> -->
+    </body>
 </html>
