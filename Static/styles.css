@@ -8,11 +8,16 @@ body {
     margin-left: auto;
     margin-right: auto;
     position:relative;
-    width: 50%;
+    width: 60%;
 }
 .container {
     max-width: 400px;
     margin: auto;
+}
+.pic{
+    margin-right: auto;
+    margin-left: 12pt;
+    margin-left: auto;
 }
 .form-group {
     margin-bottom: 15px;

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
+</head>
+
+<body>
+    <div class="container"><a href='/'> Home </a> &nbsp;</div> 
+        <br>
+    <div class="field">
+        <h1 class="pic">Cost</h1>
+        {% for x in url %}
+            <img src = "{{ x }}" height="400" width="1200"/>
+            &nbsp;
+        {% endfor %}
+    </div>
+
+</body>
+</html>
